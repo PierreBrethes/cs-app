@@ -23,6 +23,36 @@
   color: #61dafb;
 }
 
+.menu {
+  float: left;
+  width: 70px;
+  height: 1000px;
+  background-color: #0074E4;
+}
+
+.menu img {
+  float: left;
+  width: 32px;
+  height: 32px;
+  margin-top: 14px;
+  margin-left: 19px;
+}
+
+.icons {
+  float: left;
+  width: 70px;
+  height: 60px;
+}
+
+.icon {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+.dashboardIcon {
+  float: left;
+}
+
 .header {
   background-color: white;
   width: 100%;
@@ -32,7 +62,7 @@
 .header .title {
   float: left;
   font-size: 30px;
-  margin-left: 60px;
+  margin-left: 30px;
   color: #0074E4;
   line-height: 2;
 }
