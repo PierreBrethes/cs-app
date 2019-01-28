@@ -11,14 +11,15 @@ export default class Facebook extends Component {
   };
 
   responseFacebook = response => {
-    // console.log(response);
+    console.log(response);
+    localStorage.setItem('token', response.accessToken);
 
     this.setState({
       isLoggedIn: true,
       userID: response.userID,
       name: response.name,
       email: response.email,
-      picture: response.picture.data.url
+      picture: response.picture.data.url,
     });
   };
 

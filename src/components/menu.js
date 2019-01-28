@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import request from '../js/fetch.js';
 
 import menuPng from '../img/menu.png';
@@ -13,15 +14,15 @@ class Menu extends Component {
 
     return (
       <div className="menu">
-        <div className="icons">
+        <Link to='/'><a><div className="icons">
           <img src={menuPng} />
-        </div>
-        <div className="icons">
+        </div></a></Link>
+        <Link to='/dashboard'><a><div className="icons">
           <img src={dashboardPng} />
-        </div>
-        <div className="icons">
+        </div></a></Link>
+        <Link to='/spyinglist'><a><div className="icons">
           <img src={plusPng} />
-        </div>
+        </div></a></Link>
       </div>
     );
   }
