@@ -5,10 +5,10 @@ import './../../App.css';
 class BusinessAccountList extends Component {
 
    render() {
-
-     const list = Object.keys(this.props.list).map(function(key, index) {
-       return <li className="">{this.props.list[key]}</li>
-     }.bind(this));
+     console.log(this.props.list);
+     const list = this.props.list.map((index) => {
+       return <li className="">{index.businessAccount}</li>
+     });
 
      return (
        <div className="">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './../../App.css';
+import './newPosts.css';
 
 class NewPosts extends Component {
 
@@ -40,8 +40,8 @@ class NewPosts extends Component {
          {hits.map(hit =>
            <li key={hit.objectID}>
              <img src={hit.media_url} />
-             Likes : {hit.like_count}
-             Engagement : {(hit.like_count*100) / followers_count}
+             <div className="likes">Likes : {hit.like_count}</div>
+             <div className="engagement">Engagement : {(hit.like_count*100) / followers_count}</div>
            </li>
          )}
          </ul>

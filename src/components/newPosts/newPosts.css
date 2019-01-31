@@ -1,0 +1,30 @@
+.newPosts {
+  float: left;
+  width: 450px;
+  height: auto;
+  margin-left: 80px;
+}
+.newPosts ul {
+  list-style-type: none;
+  width: 400px;
+  float: left;
+}
+.newPosts li {
+  width: 350px;
+  height: 350px;
+  float: left;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+  margin-top: 20px;
+  text-align: center;
+}
+.newPosts img {
+  float: left;
+  height: 300px;
+  border-radius: 5px !important;
+}
+.likes {
+  float: left;
+
+}

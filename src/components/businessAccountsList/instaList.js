@@ -7,17 +7,49 @@ import './../../App.css';
 
 class InstaList extends Component {
 
-  state = {
-    list: {}
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      list: [],
+      isLoading: false,
+    };
+  }
+
+  getData = () => {
+    fetch("http://localhost:3001/spyinglist/172321")
+      .then(res => res.json())
+      .then(json => {
+        const newState = this.state.list;
+        json.map((index) => {
+          const x = {businessAccount: index.name}
+          newState.push(x);
+        })
+        this.setState({list: newState, isLoading: false});
+      })
+  }
+
+  componentDidMount = (props) => {
+    this.setState({ isLoading: true });
+    this.getData();
+    console.log(this.state.list);
+  }
 
   addBusinessAccount = (businessAccount) => {
-    var timestamp = (new Date()).getTime();
-    this.state.list['account - ' + timestamp ] = businessAccount;
-    this.setState({ list : this.state.list });
+    const newState = this.state.list;
+    const item = {businessAccount};
+    newState.push(item);
+    this.setState({list: newState});
+    console.log(this.state.list);
   }
 
    render() {
+
+     const { isLoading } = this.state;
+
+     if (isLoading) {
+       return <p>Loading ...</p>;
+     }
 
      return (
        <div className="">

@@ -11,7 +11,6 @@ export default class Facebook extends Component {
   };
 
   responseFacebook = response => {
-    console.log(response);
     localStorage.setItem('token', response.accessToken);
 
     this.setState({
