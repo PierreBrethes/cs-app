@@ -32,7 +32,6 @@ class InstaList extends Component {
   componentDidMount = (props) => {
     this.setState({ isLoading: true });
     this.getData();
-    console.log(this.state.list);
   }
 
   addBusinessAccount = (businessAccount) => {
@@ -40,7 +39,6 @@ class InstaList extends Component {
     const item = {businessAccount};
     newState.push(item);
     this.setState({list: newState});
-    console.log(this.state.list);
   }
 
    render() {

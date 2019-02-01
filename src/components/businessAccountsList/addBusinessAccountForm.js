@@ -11,6 +11,23 @@ class AddBusinessAccountForm extends Component {
       this.props.addBusinessAccount(account);
       this.refs.accountForm.reset();
     }
+
+    let _body = encodeURIComponent({name: account});
+    console.log(_body);
+
+    fetch('http://localhost:3001/spyinglist/172321', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+            name: account
+          })
+    })
+    .then(function(response) {
+      return response.json()
+    })
   };
 
    render() {

@@ -6,11 +6,11 @@
 }
 .newPosts ul {
   list-style-type: none;
-  width: 400px;
+  width: 1200px;
   float: left;
 }
 .newPosts li {
-  width: 350px;
+  width: 1000px;
   height: 350px;
   float: left;
   background-color: white;
