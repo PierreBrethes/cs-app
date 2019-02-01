@@ -15,7 +15,7 @@ class AddBusinessAccountForm extends Component {
     let _body = encodeURIComponent({name: account});
     console.log(_body);
 
-    fetch('http://localhost:3001/spyinglist/172321', {
+    fetch('http://localhost:3001/spyinglist/'+localStorage.getItem('businessID'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

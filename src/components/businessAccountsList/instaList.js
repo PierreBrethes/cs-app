@@ -17,7 +17,7 @@ class InstaList extends Component {
   }
 
   getData = () => {
-    fetch("http://localhost:3001/spyinglist/172321")
+    fetch("http://localhost:3001/spyinglist/"+localStorage.getItem('businessID'))
       .then(res => res.json())
       .then(json => {
         const newState = this.state.list;
