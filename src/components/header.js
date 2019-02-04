@@ -15,7 +15,8 @@ class Header extends Component {
     this.state = {
       modalIsOpen: false,
       isLoading: false,
-      businessLoading: false
+      businessLoading: false,
+      hasBusinessAccount: false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -39,12 +40,11 @@ class Header extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-    console.log('closed');
   }
 
   setBusinessID(id) {
     localStorage.setItem('businessID', id);
-    console.log('prout');
+    this.setState({modalIsOpen: false});
   }
 
   getData = () => {
@@ -52,12 +52,15 @@ class Header extends Component {
       .then(res => res.json())
       .then(json => {
         const business = json.data.map((index) => {
+
           if (index.instagram_business_account !== undefined ) {
+            this.setState({hasBusinessAccount: true});
             return <button className="chooseAccount" onClick={() => { this.setBusinessID(index.instagram_business_account.id, index.name) }}>{index.name}</button>
-          } else {
-            return <button className="chooseAccount">{index.name}</button>
           }
         })
+        if (this.state.hasBusinessAccount === false) {
+          return <div>Vous n'avez aucun compte business.</div>
+        }
         this.setState({ hits: business,  isLoading: false})
       });
   }
