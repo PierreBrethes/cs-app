@@ -11,6 +11,7 @@ class NewPosts extends Component {
       followers_count: 0,
       hits: [],
       isLoading: false,
+      isChecked: false
     };
   }
 
@@ -35,6 +36,12 @@ class NewPosts extends Component {
     } else {
       this.setState({isLoading: "no token"})
     }
+  }
+
+  componentWillReceiveProps =  (props) => {
+    this.setState({ isChecked: props.refresh }, () => {
+      this.getData();
+    }); 
   }
 
    render() {

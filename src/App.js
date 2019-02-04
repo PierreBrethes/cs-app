@@ -22,13 +22,6 @@ class App extends Component {
           <Route exact path="/spyinglist" component={InstaList} />
         </Switch>
       </div>
-
-        //   <Route exact path='/' component={Home}/>
-        //   <Route path='/:label' render={props =>
-        //     <div>
-        //       <Stop label={props.match.params.label} code={props.location.code} image_ligne={props.location.image_ligne} coords={props.location.coords} city={props.location.city}/>
-        //     </div> }
-        //   />
     );
   }
 }
