@@ -15,11 +15,17 @@ class NewPosts extends Component {
   }
 
   getData = () => {
-    fetch("http://localhost:3001/spyinglist/"+localStorage.getItem('businessID')+"/"+localStorage.getItem('token'), {
+    fetch("http://localhost:3001/feed/"+localStorage.getItem('businessID')+"/"+localStorage.getItem('token'), {
       method: 'GET'
     })
       .then(res => res.json())
-      .then(json => this.setState({ hits: json.media.data, isLoading: false, followers_count: json.followers_count }));
+      .then(json => {
+        if (json !== undefined) {
+          this.setState({ hits: json, isLoading: false, followers_count: json.followers_count })
+        } else {
+
+        }
+      });
   }
 
   componentDidMount = (props) => {
@@ -40,7 +46,7 @@ class NewPosts extends Component {
         return <p>Loading ...</p>;
         break;
       case "no token":
-        return <p>No token business available</p>;
+        return <p>You do not have a business account available or you did not choose one. Click on "Choose account" and select it.</p>;
         break;
       default:
       return (

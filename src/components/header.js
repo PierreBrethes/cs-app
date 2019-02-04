@@ -42,18 +42,18 @@ class Header extends Component {
     console.log('closed');
   }
 
-  setBusinessID(id, name) {
+  setBusinessID(id) {
     localStorage.setItem('businessID', id);
-    console.log(name);
+    console.log('prout');
   }
 
   getData = () => {
-    fetch("https://graph.facebook.com/v3.2/me/accounts?fields=instagram_business_account&access_token="+localStorage.getItem('token'))
+    fetch("https://graph.facebook.com/v3.2/me/accounts?fields=instagram_business_account,name&access_token="+localStorage.getItem('token'))
       .then(res => res.json())
       .then(json => {
         const business = json.data.map((index) => {
           if (index.instagram_business_account !== undefined ) {
-            return <button className="chooseAccount" onClick={this.setBusinessID(index.instagram_business_account.id, index.name)}>{index.name}</button>
+            return <button className="chooseAccount" onClick={() => { this.setBusinessID(index.instagram_business_account.id, index.name) }}>{index.name}</button>
           } else {
             return <button className="chooseAccount">{index.name}</button>
           }
